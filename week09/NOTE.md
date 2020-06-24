@@ -1,17 +1,17 @@
-animation 属性
-animation-name 动画的名称，这是一个 keyframes 类型的值（我们在第 9 讲“CSS 语法：除了属性和选择器，你还需要知道这些带 @的规则”讲到过，keyframes 产生一种数据，用于定义动画关键帧）；
-animation-duration 动画的时长；
-animation-timing-function 动画的时间曲线；
-animation-delay 动画开始前的延迟；
-animation-iteration-count 动画的播放次数；
-animation-direction 动画的方向。
+### animation 属性
+- animation-name 动画的名称，这是一个 keyframes 类型的值（我们在第 9 讲“CSS 语法：除了属性和选择器，你还需要知道这些带 @的规则”讲到过，keyframes 产生一种数据，用于定义动画关键帧）；
+- animation-duration 动画的时长；
+- animation-timing-function 动画的时间曲线；
+- animation-delay 动画开始前的延迟；
+- animation-iteration-count 动画的播放次数；
+- animation-direction 动画的方向。
 
 
-transition 属性
-transition-property 要变换的属性；
-transition-duration 变换的时长；
-transition-timing-function 时间曲线；
-transition-delay 延迟。
+### transition 属性
+- transition-property 要变换的属性；
+- transition-duration 变换的时长；
+- transition-timing-function 时间曲线；
+- transition-delay 延迟。
 
 
 ### 常用实体
