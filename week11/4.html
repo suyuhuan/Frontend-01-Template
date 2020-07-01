@@ -63,7 +63,7 @@
        let table = Object.create(map);
         let queue = [start];
           
-        async  function insert(x, y) {
+        async  function insert(x, y, pre) {
               if(x < 0 || x >= 100 || y < 0 || y >= 100) {
                   return;
               }
@@ -86,16 +86,16 @@
                   }
                   return path;
               }
-              insert(x - 1, y, [x,y]);
-              insert(x, y - 1,[x,y]);
-              insert(x, y - 1,[x,y]);
-              insert(x + 1, y,[x,y]);
-              insert(x, y + 1,[x,y]);
+              await insert(x - 1, y, [x,y]);
+              await insert(x, y - 1,[x,y]);
+              await insert(x, y - 1,[x,y]);
+              await insert(x + 1, y,[x,y]);
+              await insert(x, y + 1,[x,y]);
 
-              insert(x - 1, y - 1, [x,y]);
-              insert(x + 1, y - 1, [x,y]);
-              insert(x - 1, y + 1, [x,y]);
-              insert(x + 1, y + 1, [x,y]);
+              await insert(x - 1, y - 1, [x,y]);
+              await insert(x + 1, y - 1, [x,y]);
+              await insert(x - 1, y + 1, [x,y]);
+              await insert(x + 1, y + 1, [x,y]);
           }
           return null;
       }

@@ -102,7 +102,7 @@
               await sleep(5);
               container.children[y*100 +x].style.backgroundColor = "lightgreen";
               table[y * 100 + x] = pre;
-              queue.push([x,y]);
+              queue.give([x,y]);
           }
           function distance(point) {
               return (point[0] - end[0]) ** 2 + (point[1] - end[1]) ** 2;
@@ -118,15 +118,15 @@
                   }
                   return path;
               }
-              insert(x - 1, y, [x,y]);
-              insert(x, y - 1,[x,y]);
-              insert(x + 1, y,[x,y]);
-              insert(x, y + 1,[x,y]);
+              await insert(x - 1, y, [x,y]);
+              await insert(x, y - 1,[x,y]);
+              await insert(x + 1, y,[x,y]);
+              await insert(x, y + 1,[x,y]);
 
-              insert(x - 1, y - 1, [x,y]);
-              insert(x + 1, y - 1, [x,y]);
-              insert(x - 1, y + 1, [x,y]);
-              insert(x + 1, y + 1, [x,y]);
+              await insert(x - 1, y - 1, [x,y]);
+              await insert(x + 1, y - 1, [x,y]);
+              await insert(x - 1, y + 1, [x,y]);
+              await insert(x + 1, y + 1, [x,y]);
           }
           return null;
       }
