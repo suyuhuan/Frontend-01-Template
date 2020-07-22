@@ -153,14 +153,7 @@ export class Component {
         this.updated();
     }
     updated() {
-    //     let placeholder = document.createComment("placeholder");
-    //     let range = document.createRange();
-    //     range.setStart(this.range.endContainer, this.range.endOffset);
-    //     range.setEnd(this.range.endContainer, this.range.endOffset);
-    //     range.insertNode(placeholder);
 
-    //    this.range.deleteContents();
-        
         let vdom = this.vdom;
         if (this.oldVdom) {
 
