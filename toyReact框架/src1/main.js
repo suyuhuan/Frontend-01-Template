@@ -24,4 +24,3 @@ ToyReact.render(
     document.body
 )
 // document.body.appendChild(a);
-
