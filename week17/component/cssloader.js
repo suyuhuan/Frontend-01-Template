@@ -4,7 +4,7 @@ module.exports = function (source, map) {
     let stylesheet = css.parse(source);
 
     // let name = this.resourcePath.match(/([^/]+).css$/)[1];
-    let name = this.resourcePath.match(/([^\/]+).css$/)[1];
+    let name = this.resourcePath.match(/([^/]+).css$/)[1];
     
     console.log(this.resourcePath);
     console.log(name);
