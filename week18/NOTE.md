@@ -1,5 +1,4 @@
-# 每周总结可以写在这里## Dev 工具
-`tips: 处理底层原理的关键技术之一：字符串 + 事件处理 `
+## Dev 工具
 ### Server
 - build
   + webpack
