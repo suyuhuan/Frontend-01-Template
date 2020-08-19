@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "archiver": "^5.0.0",
     "querystring": "^0.2.0"
   }
 }
