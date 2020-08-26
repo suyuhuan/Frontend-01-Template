@@ -9,6 +9,7 @@ which node
 open node路径
 phantomjs --version
 
+
 授权 OAuth [https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/]
 
 GitHub的设置路径

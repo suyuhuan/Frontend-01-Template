@@ -17,22 +17,57 @@ const server = http.createServer((req, res) => {
     //     res.end('okay');
     // })
   
-    // if (req.url.match(/^\/auth/)) {
-    //     return auth(req, res);
-    // }
+    if (req.url.match(/^\/auth/)) {
+        return auth(req, res);
+    }
+    if (!req.url.match(/^\/?/)) {
+        res.writeHead(404, {'Content-Type':'text/plain'});
+        res.end('not found');
+        return;
+    }
+    req.headers.token 
+    const options = {
+        hostname: 'api.github.com',
+        port:443,
+        path:`/user`,
+        method:'GET',
+        headers:{
+            Authorization:"token " + req.headers.token,
+            "User-Agent":"toy-publish-server"
+        }
+    };
+    const request = https.request(options, (response) => {
+        // console.log('startusCode:', response.statusCode);
+        // console.log('headers:', response.headers);
+        let body = ""
+        response.on('data', (d) => {
+           body += d.toString()
+        })
+        response.on('end', () => {
+            console.log(body);
+            let user = JSON.parse(body);
+            console.log(user);
+            //权限检查
+         })
+       })
+        request.on('error', (e) => {
+            console.error(e)
+        })
+        request.end();
 
-    // let writeStream = unzip.Extract({path:'../server/public'});
+
+    let writeStream = unzip.Extract({path:'../server/public'});
     // req.pipe(writeStream);
-    // req.on('data', trunk => {
-    //     writeStream.write(trunk);
-    // })
-    // req.on('end', trunk => {
-    //     writeStream.end(trunk);
-    // })
-    // res.on('end', () => {
-    //     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    //     res.end('okay');
-    // })
+    req.on('data', trunk => {
+        writeStream.write(trunk);
+    })
+    req.on('end', trunk => {
+        writeStream.end(trunk);
+    })
+    res.on('end', () => {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('okay');
+    })
 
    
 });

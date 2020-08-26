@@ -8,7 +8,8 @@ const postData = querystring.stringify({
     'content': 'Hello World!202020'
 });
 
-const path = require('path')
+const path = require('path');
+const { Server } = require('tls');
 let public_path = path.resolve(__dirname, './');
 // let public_path = '';
 
@@ -59,8 +60,12 @@ let packname = './package';
 
     archive.on('end', () => {
         req.end();
-        let redirect_uri = encodeURIComponent("http://localhost:8081/auth") //8081
-        child_process.exec(`open https://github.com/login/oauth/authorize?client_id=Iv1.7cb61f0d2e06d685&redirect_uri=${redirect_uri}&scope=read%3Auser&state=123abc`)
+        console.log("publish success!!")
+        res.on('end', () => {
+            server.close();
+        })
+       // let redirect_uri = encodeURIComponent("http://localhost:8081/auth") //8081
+       // child_process.exec(`open https://github.com/login/oauth/authorize?client_id=Iv1.7cb61f0d2e06d685&redirect_uri=${redirect_uri}&scope=read%3Auser&state=123abc`)
     })
 
     // Write data to request body
