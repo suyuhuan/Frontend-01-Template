@@ -24,159 +24,159 @@ winter老师让我学到了平常学不到的知识，提高了我对前端的�
 
 ### 知识点总结回顾篇
 ##### 编程语言通识
-•语言按语法分类
-    •非形式语言
-    •形式语言
-•产生式（BNF）
-•图灵完备性
-•动态与静态
-•类型系统
-•一般命令式编程语言
+- •语言按语法分类
+    - •非形式语言
+    - •形式语言
+- •产生式（BNF）
+- •图灵完备性
+- •动态与静态
+- •类型系统
+- •一般命令式编程语言
 
 ##### 重学javscript
-• Atom 原子
-• Expression表达式
-• Statement声明
-• Structure结构
-• Program/Module程序/模块
+- • Atom 原子
+- • Expression表达式
+- • Statement声明
+- • Structure结构
+- • Program/Module程序/模块
 
 ##### 浏览器工作原理
 URL -(http)-> HMTL -(parse)-> DOM -(css computing)-> DOM with CSS -(layout)-> DOM width position -(render) -> Bitmap
 
 ##### 重学css
-• selector
-• 排版
-• animation
-• render
+- • selector
+- • 排版
+- • animation
+- • render
 
 ##### 重学html
-• XML与SGML
-• html语义与语法
-• DOM
-• Event
+- • XML与SGML
+- • html语义与语法
+- • DOM
+- • Event
 
 ##### 浏览器API
-•BOM 
-    •RangeAPI
-•CSSOM
+- •BOM 
+    - •RangeAPI
+- •CSSOM
 
 ##### 编程与算法
-•TicTactoe 
-•四则运算 
-•字符串算法
+- •TicTactoe 
+- •四则运算 
+- •字符串算法
 
 ##### 组件化
-•对象
-    • Properties
-    • Methods 
-    • Inherit
-•组件
-    • Properties
-    • Methods
-    • Inherit
-    • Attribute
-    • Config & State
-    • Event
-    • Lifecycle
-    • Children
+- •对象
+    - • Properties
+    - • Methods 
+    - • Inherit
+- •组件
+    - • Properties
+    - • Methods
+    - • Inherit
+    - • Attribute
+    - • Config & State
+    - • Event
+    - • Lifecycle
+    - • Children
 
 ##### 工具链
 Dev 工具 
-• Server  
-   • build：webpack babel vue jsx postcss....... 
-   • watch：fsevent 
-   • mock：... 
-   • http：ws 
-• Client 
-   • debugger：vscode devtool 
-   • source map
+- • Server  
+   - • build：webpack babel vue jsx postcss....... 
+   - • watch：fsevent 
+   - • mock：... 
+   - • http：ws 
+- • Client 
+   - • debugger：vscode devtool 
+   - • source map
 
 ### 学习目录回顾
-week01
-  学习方法
-  构建知识体系
-  工程体系
+- week01
+  - 学习方法
+  - 构建知识体系
+  - 工程体系
 
-week02
-   重学前端|javascript编程语言通识与JavaScript语言设计
-   重学前端|javascript词法，类型
+- week02
+   - 重学前端|javascript编程语言通识与JavaScript语言设计
+   - 重学前端|javascript词法，类型
 
-week03
-   重学前端|javascript表达式，类型转换
-   重学前端|javascript语句，对象
+- week03
+   - 重学前端|javascript表达式，类型转换
+   - 重学前端|javascript语句，对象
 
-week04
-   重学前端|javscript结构化
+- week04
+   - 重学前端|javscript结构化
 
-week05
-   重学前端|javscript结构化
-   浏览器工作原理|http协议-语法与词法分析(1)
-   浏览器工作原理|http协议-语法与词法分析(2)
+- week05
+   - 重学前端|javscript结构化
+   - 浏览器工作原理|http协议-语法与词法分析(1)
+   - 浏览器工作原理|http协议-语法与词法分析(2)
 
-week06
-   浏览器工作原理|有限状态机
-   浏览器工作原理|http协议-语法与词法分析(3)
-   浏览器工作原理|css计算、排版、渲染、合成（1）
+- week06
+   - 浏览器工作原理|有限状态机
+   - 浏览器工作原理|http协议-语法与词法分析(3)
+   - 浏览器工作原理|css计算、排版、渲染、合成（1）
 
-week07
-   浏览器工作原理|css计算、排版、渲染、合成（2）
-   重学前端|css基本语法，css基础机制(1)
+- week07
+   - 浏览器工作原理|css计算、排版、渲染、合成（2）
+   - 重学前端|css基本语法，css基础机制(1)
 
-week08
-    重学前端|css基本语法，css基础机制(2)
-    排版与排版相关属性，绘制与绘制相关属性
+- week08
+    - 重学前端|css基本语法，css基础机制(2)
+    - 排版与排版相关属性，绘制与绘制相关属性
 
-week09
-    重学前端|css动画
-    重学前端|html语言与扩展
-    重学前端|html语义
-    浏览器API|DOM API 事件机制
+- week09
+    - 重学前端|css动画
+    - 重学前端|html语言与扩展
+    - 重学前端|html语义
+    - 浏览器API|DOM API 事件机制
 
-week10
-     浏览器API|其他API，总结
-     编程与算法训练|TicTactoe/井字棋
+- week10
+     - 浏览器API|其他API，总结
+     - 编程与算法训练|TicTactoe/井字棋
 
-week11
-     编程与算法训练|promise与异步编程
-     编程与算法训练|寻路问题(搜索)
-     编程与算法训练|寻路问题(搜索)，正则表达式
+- week11
+     - 编程与算法训练|promise与异步编程
+     - 编程与算法训练|寻路问题(搜索)
+     - 编程与算法训练|寻路问题(搜索)，正则表达式
 
-week12
-     编程与算法训练|解析一个四则运算的表达式
-     编程与算法训练|点击区域与括号匹配，wildcard
+- week12
+    - 编程与算法训练|解析一个四则运算的表达式
+    - 编程与算法训练|点击区域与括号匹配，wildcard
 
-week13
-     编程与算法训练 | Proxy 与双向绑定
-     编程与算法训练 | 使用 Range 实现 DOM 精确操作
-     组件化 | 组件的基本知识
+- week13
+     - 编程与算法训练 | Proxy 与双向绑定
+     - 编程与算法训练 | 使用 Range 实现 DOM 精确操作
+     - 组件化 | 组件的基本知识
 
-week14
-     组件化 | 为组件添加JSX语法
-     组件化 | 轮播组件
+- week14
+     - 组件化 | 为组件添加JSX语法
+     - 组件化 | 轮播组件
 
-week15
-     组件化 | One more thing：Vue 风格的 SFC
-     组件化 | 动画
+- week15
+    -  组件化 | One more thing：Vue 风格的 SFC
+    - 组件化 | 动画
 
-week16
-    组件化 | 手势
-    组件化 | 轮播组件的继续改造 ：生命周期
+- week16
+    - 组件化 | 手势
+    - 组件化 | 轮播组件的继续改造 ：生命周期
 
-week17
-    组件化 | Tab组件和List组件
-    工具链 | 整体理解一个工具链的设计(1)
-    工具链 | 整体理解一个工具链的设计(2)
+- week17
+    - 组件化 | Tab组件和List组件
+    - 工具链 | 整体理解一个工具链的设计(1)
+    - 工具链 | 整体理解一个工具链的设计(2)
 
-week18
-    工具链 | Dev工具
-    工具链 | 设计并实现一个单元测试工具（1）
-    工具链 | 设计并实现一个单元测试工具（2）
+- week18
+    - 工具链 | Dev工具
+    - 工具链 | 设计并实现一个单元测试工具（1）
+    - 工具链 | 设计并实现一个单元测试工具（2）
 
-week19
-    工具链 | 目录结构与初始化工具
-    发布系统 | 实现一个线上 Web 服务
-    发布系统 | 实现一个线上 Web 服务
+- week19
+    - 工具链 | 目录结构与初始化工具
+    - 发布系统 | 实现一个线上 Web 服务
+    - 发布系统 | 实现一个线上 Web 服务
 
-week20
-    发布系统 | lint与PhantomJS
-    发布系统 | OAuth
+- week20
+    - 发布系统 | lint与PhantomJS
+    - 发布系统 | OAuth
