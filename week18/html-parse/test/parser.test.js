@@ -1,5 +1,4 @@
 import {parseHTML} from '../src/parser.js';
-import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
 let assert = require("assert");
 
 it('parse a single element',() => {

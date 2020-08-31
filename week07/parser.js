@@ -293,6 +293,10 @@ function beforeAttributeValue(c) {
 function doubleQuotedAttributeValue(c) {
     if (c == "\"") {
         currentToken[currentAtrribute.name] = currentAtrribute.value;
+        currentAtrribute = {
+            name : "",
+            value: ""
+        }
         return afterQuotedAttributeValue;
     } else if (c == "\u0000") {
 
