@@ -1,0 +1,57 @@
+<script>
+    let handlers = new Map();
+    let usedReactivitys = [];
+    let object = {
+        a: 1,
+        b:2
+    }
+    function reactive(obj) {
+        return new Proxy(obj,{
+            get(obj, prop) {
+                //依赖收集
+                usedReactivitys.push([obj, prop]);
+                return obj[prop];
+            },
+            set(obj, prop, val) {
+                obj[prop] = val
+                console.log(handlers);
+                if(handlers.get(obj)) {
+                    if (handlers.get(obj).get(prop)) {
+                        for (let handles of handlers.get(obj).get(prop)) {
+                            handles();
+                        }
+                    }
+                }
+                return obj[prop];
+            }
+        })
+    }
+    function effect(handler) {
+        usedReactivitys = [];
+        //取到值
+        handler();
+
+        console.log(usedReactivitys);
+        
+        for(let usedReactivity of usedReactivitys) {
+            let [obj, prop] = usedReactivity;
+            console.log([obj,prop])
+            if(!handlers.has(obj)) {
+                handlers.set(obj, new Map())
+            }
+
+            if(!handlers.get(obj).has(prop)) {
+                handlers.get(obj).set(prop,[])
+            }
+
+            handlers.get(obj).get(prop).push(handler);
+        }
+    }
+
+    let dummy;
+    let proxy = reactive(object);
+    effect(() => dummy = proxy.a);
+    console.log(dummy);
+    proxy.a = 2;
+    console.log(dummy);
+</script>

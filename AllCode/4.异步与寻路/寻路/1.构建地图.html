@@ -1,0 +1,31 @@
+
+<style>
+     #container{
+        width: 701px;
+    }
+    .cell{
+        display: inline-block;
+        vertical-align: middle;
+        width: 6px;
+        height: 6px;
+        background-color: gray;
+        border-bottom: solid 1px white;
+        border-right: solid 1px white;
+    }
+</style>
+<body>
+ <button onclick="">save</button>
+ <div id="container"></div>
+</body>
+<script>
+    var map = new Array(10000).fill(0);
+    let container = document.getElementById("container");
+    for (let y=0; y<100; y++) {
+        for (let y = 0; y < 100; y++) {
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+            container.appendChild(cell);
+        }
+    }
+</script>
+</html>

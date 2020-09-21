@@ -1,0 +1,52 @@
+<body>
+    <div id="div">点我绑定事件</div>
+</body>
+
+<script>
+
+    // var addEvent = function(elem, type, handler) {
+    //     if (window.addEventListener) {
+    //         return elem.addEventListener(type, handler, false);
+    //     }
+    //     if (window.attachEvent) {
+    //         return elem.attachEvent('on' + type,handler);
+    //     }
+    // }
+
+    // var addEvent = (function() {
+    //     if (window.addEventListener) {
+    //         return function(elem, type, handler) {
+    //             elem.addEventListener(type, handler, false);
+    //         }
+    //     }
+    //     if (window.attachEvent) {
+    //         return function(elem, type, handler) {
+    //             elem.attachEvent('on' + type, handler);
+    //         }
+    //     } 
+    // })()
+
+    var addEvent = function(elem, type, handler) {
+        if (window.addEventListener) {
+            addEvent = function(elem, type, handler) {
+                elem.addEventListener(type, handler, false)
+            }
+        } else if (window.attachEvent) {
+            addEvent = function(elem,type, handler) {
+                elem.attachEvent('on' + type, handler);
+            }
+        }
+        addEvent(elem, type, handler);
+    }
+
+    var div = document.getElementById('div');
+    addEvent(div, 'click', function() {
+        alert('1');
+    });
+
+    addEvent(div, 'click', function() {
+        alert('2');
+    })
+
+
+</script>

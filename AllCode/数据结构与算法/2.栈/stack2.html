@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>栈</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Stack() {
+        this.dataStore = [];
+        this.top = 0;
+        this.push = push;
+        this.pop = pop;
+        this.peek = peek;
+        this.clear = clear;
+        this.length = length;
+    }
+    function push(element) {
+        this.dataStore[this.top++] = element;
+    }
+    function pop() {
+        return this.dataStore[--this.top];
+    }
+    function peek() {
+        return this.dataStore[this.top -1];
+    }
+    function clear() {
+        this.top = 0;
+    }
+    function length() {
+        return this.top;
+    }
+
+
+    //回文算法 abcba dad
+    function isPalindrome(word) {
+        var s = new Stack();
+        for (var i = 0; i< word.length;i++) {
+            s.push(word[i]);
+        }
+        var rword = "";
+        console.log(s);
+        while(s.length() > 0) {
+            rword += s.pop();
+        }
+
+        if(rword == word) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    var word = "abcba";
+    alert(isPalindrome(word));
+</script>
+</html>

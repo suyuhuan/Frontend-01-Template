@@ -21,6 +21,7 @@
               this.data = data.slice();
               this.compare = compare || ((a,b) => a-b);
           }
+          
           take() {
               if (!this.data.length){
                   return
@@ -38,9 +39,11 @@
               this.data.pop();
               return min;
           }
+
           give(v) {
               this.data.push(v);
           }
+
           get length() {
               return this.data.length;
           }

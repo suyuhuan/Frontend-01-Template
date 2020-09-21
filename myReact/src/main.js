@@ -19,6 +19,7 @@ class MyComponent extends Component{
 let a = <MyComponent name = "a" id="ida">
     <div>123</div>
 </MyComponent>
+
 myReact.render(
     a,
     document.body

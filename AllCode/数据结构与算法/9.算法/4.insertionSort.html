@@ -1,0 +1,38 @@
+<script>
+    //插入排序
+    function ArrayList() {
+        var array = [];
+        this.insert = function(item) {
+            array.push(item);
+        }
+        this.toString = function() {
+            return array.join();
+        }
+
+       this.insertionSort = function() {
+          var length = array.length,
+          j,temp;
+          for (var i = 1; i < length; i++) {
+              j = i;
+              temp = array[i];
+              while(j >0 && array[j-1] > temp) {
+                  array[j] = array[j-1];
+                  j--;
+              }
+              array[j] = temp;
+          }
+       }
+    }
+
+    function createNonSortedArray(size) {
+        var arrayL = new ArrayList();
+        for (var i = size; i > 0;i--) {
+            arrayL.insert(i);
+        }
+        return arrayL;
+    }
+    var myArray = createNonSortedArray(9);
+    console.log(myArray.toString());
+    myArray.insertionSort();
+    console.log(myArray.toString());
+</script>

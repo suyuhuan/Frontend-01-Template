@@ -1,0 +1,49 @@
+<script>
+    //Dijkstra算法是一种计算从单个源到所有其他源的最短路径的贪心算法
+    var graph = [
+        [0,2,4,0,0,0],
+        [0,0,2,4,2,0],
+        [0,0,0,0,3,0],
+        [0,0,0,0,0,2],
+        [0,0,0,3,0,2],
+        [0,0,0,0,0,0]
+    ]
+    var INF = Number.MAX_SAFE_INTEGER;
+   //a到其余顶点的之间的最短路径
+    this.dijkstra = function(src) {
+        var dist = [], visited = [],
+        length = this.graph.length;
+
+        for (var i = 0; i < length; i++) {
+            dist[i] = INF;//最大数 INF=Number.MAX_SAFE_INTEGER
+            visited[i] = false;
+        } 
+        dist[src] = 0;
+
+        for (var i = 0; i< length-1; i++) {
+            var u = minDistance(dist, visited);
+            visited[u] = true;
+
+            for (var v = 0; v < length;  v++) {
+                if (!visited[v] && this.graph[u][v] != 0 && dist[u] != INF && dist[u] + this.graph[u][v] < dist[v]) {
+                    dist[v] = dist[u] + this.graph[u][v];
+                }
+            }
+        }
+        return dist;
+    }
+
+    var minDistance = function(dist, visited) {
+        var min = INF, minIndex = -1;
+
+        for (var v = 0 ; v < dist.length; v++) {
+            if (visited[v] == false && dist[v] <= min) {
+                min = dist[v];
+                minIndex = v;
+            }
+        }
+        return minIndex;
+    }
+
+    console.log(dijkstra(0));
+</script>

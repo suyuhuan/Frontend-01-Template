@@ -1,0 +1,46 @@
+<script>
+    //选择排序
+    function ArrayList() {
+        var array = [];
+        this.insert = function(item) {
+            array.push(item);
+        }
+        this.toString = function() {
+            return array.join();
+        }
+
+       this.selectionSort = function() {
+           var length = array.length,
+           indexMin;
+           for (var i = 0; i < length; i++) {
+               indexMin = i;
+               for (var j = i ; j < length; j++) {
+                   if (array[indexMin] > array[j]) {
+                       indexMin = j;
+                   }
+               }
+               if (i !== indexMin) {
+                   swap(array, i, indexMin);
+               }
+           }
+       }
+
+        var swap = function(array, index1, index2) {
+            var aux = array[index1];
+            array[index1] = array[index2];
+            array[index2] = aux;
+        }
+    }
+
+    function createNonSortedArray(size) {
+        var arrayL = new ArrayList();
+        for (var i = size; i > 0;i--) {
+            arrayL.insert(i);
+        }
+        return arrayL;
+    }
+    var myArray = createNonSortedArray(9);
+    console.log(myArray.toString());
+    myArray.selectionSort();
+    console.log(myArray.toString());
+</script>

@@ -1,0 +1,45 @@
+<body>
+    <button id ="loginBtn">登录</button>
+</body>
+<script>
+    // Singleton.getInstance = (function() {
+    //     var instance = null;
+    //     return function(name) {
+    //         if (!instance) {
+    //             instance = new Singleton(name);
+    //         }
+    //         return instance;
+    //     }
+    // })
+
+    // 登陆浮窗
+    var loginLayer = (function(){
+        var div = document.createElement('div');
+        div.innerHTML = '我是登录浮窗';
+        div.style.display = 'none';
+        document.body.appendChild(div);
+        return div;
+    })();
+
+    document.getElementById('loginBtn').onclick = function() {
+        var loginLayer = createLoginLayer();
+        loginLayer.style.display = 'block';
+    }
+
+    var createLoginLayer = (function() {
+        var div;
+        return function() {
+            if (!div) {
+                div = document.createElement('div');
+                div.innerHTML = '我是登录浮窗';
+                div.style.display = 'none';
+                document.body.appendChild(div);
+            }
+            return div;
+        }
+    })();
+    document.getElementById('loginBtn').onclick = function() {
+        var loginLayer = createLoginLayer();
+        loginLayer.style.display = 'block';
+    };
+</script>

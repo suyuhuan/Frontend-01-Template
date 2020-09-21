@@ -1,4 +1,4 @@
-import {parseHTML} from './../parser.js';
+import {parseHTML} from '../parser.js';
 let assert = require("assert");
 
 it('parse a single element',() => {

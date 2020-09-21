@@ -1,0 +1,72 @@
+<script>
+    //kruskal也是一种加权无向连通图
+    const INF =  Number.MAX_SAFE_INTEGER;
+    this.kruskal = function(graph) {
+        var length = graph.length,
+        parent = [], cost,
+        ne = 0,a,b,u,v,i,j,min;
+
+        cost = initaializeCost(graph);
+
+        while (ne < length - 1) {
+            for (i = 0, min = INF; i < length; i++) {
+                for (j = 0; j < length; j ++) {
+                    if (cost[i][j] < min) {
+                        min = cost[i][j];
+                        u = i;
+                        v = j;
+                    }
+                }
+            }
+            u = find(u, parent);
+            v = find(v, parent);
+
+            if (union(u, v, parent)) {
+                ne++;
+            }
+            cost[u][v] = cost[v][u] = INF;
+        }
+        return parent;
+    }
+    this.initaializeCost = function(graph) {
+        const cost = [];
+        const { length } = graph;
+        for (let i = 0; i < length; i++) {
+            cost[i] = [];
+            for (let j = 0; j < length; j++) {
+            if (graph[i][j] === 0) {
+                cost[i][j] = INF;
+            } else {
+                cost[i][j] = graph[i][j];
+            }
+            }
+        }
+        return cost;
+    }
+    var find = function(i, parent) {
+        while (parent[i]) {
+            i = parent[i];
+        }
+        return i;
+    }
+    var union = function(i, j, parent) {
+        if (i != j) {
+            parent[j] = i;
+            return true;
+        }
+        return false;
+    }
+
+    const graph = [
+  [0, 2, 4, 0, 0, 0],
+  [2, 0, 2, 4, 2, 0],
+  [4, 2, 0, 0, 3, 0],
+  [0, 4, 0, 0, 3, 2],
+  [0, 2, 3, 3, 0, 2],
+  [0, 0, 0, 2, 2, 0]
+];
+const parent = kruskal(graph);
+for (i = 1; i < graph.length; i++) {
+  console.log(parent[i] + ' - ' + i + '   ' + graph[i][parent[i]]);
+}
+</script>

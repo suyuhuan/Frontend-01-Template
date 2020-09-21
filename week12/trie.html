@@ -10,17 +10,18 @@
             for (let c of word) {
                 if (!node[c]) {
                     node[c] = Object.create(null);
-                node = node[c];
                 }
-                if(!("$" in node))
-                    node["$"] = 0;
-                node["$"] ++;
+                node = node[c];
             }
+            if(!("$" in node)){
+                node["$"] = 0;
+            }
+            node["$"] ++;
         }
         most() {
             let max = 0;
             let maxWord = null;
-            let visit = (node, maxWord) => {
+            let visit = (node, word) => {
                 if (node.$ && node.$ > max) {
                    max = node.$;
                    maxWord = word;

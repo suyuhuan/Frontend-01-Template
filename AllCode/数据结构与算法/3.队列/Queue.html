@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>队列</title>
+</head>
+<body></body>
+<script>
+     function Queue() {
+         let items = [];
+
+         //想队列添加元素
+         this.enqueue = function (element) {
+             items.push(element);
+         }
+         //从队列中移除元素
+         this.dequeue = function() {
+             return items.shift();
+         }
+         //查看队列头元素
+         this.front = function() {
+             return items[0];
+         }
+         //检查队列是否为空
+         this.isEmpty = function() {
+             return items.length == 0;
+         };
+
+         this.size = function() {
+             return items.length;
+         }
+         //打印队列元素
+         this.print = function() {
+             console.log(items.toString());
+         }
+     }
+
+     //击鼓传花游戏
+     function hotPotato (nameList, num) {
+         let queue = new Queue();
+
+         for (let i = 0; i<nameList.length; i++) {
+             queue.enqueue(nameList[i]);
+         }
+         let eliminated = '';
+         while (queue.size() > 1) {
+             for (let i=0; i< num;i++) {
+                 queue.enqueue(queue.dequeue());
+             }
+             eliminated = queue.dequeue();
+             console.log(eliminated + '在击鼓传花游戏中被淘汰。');
+         }
+         return queue.dequeue();
+     }
+     
+     let names = ['john','jack','zhangsan','lisi','wangwu','carl'];
+     let winner = hotPotato(names,7);
+     console.log("the winner is"+ winner);
+</script>
+</html>

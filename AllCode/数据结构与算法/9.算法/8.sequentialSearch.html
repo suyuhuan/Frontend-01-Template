@@ -1,0 +1,33 @@
+<script>
+    //顺序搜索
+    function ArrayList() {
+        var array = [];
+        this.insert = function(item) {
+            array.push(item);
+        }
+        this.toString = function() {
+            return array.join();
+        }
+
+        this.sequentialSearch = function(item) {
+            for (var i = 0; i< array.length; i++) {
+                if (item === array[i]) {
+                    return array[i]
+                }
+            }
+            return -1;
+        }
+    }
+
+    var arrayData = new ArrayList();
+    arrayData.insert(1)
+    arrayData.insert(3)
+    arrayData.insert(8)
+    arrayData.insert(5)
+    arrayData.insert(6)
+    arrayData.insert(7);
+    console.log(arrayData.sequentialSearch(7));
+    // var data = arrayData.toString();
+    // console.log();
+
+</script>

@@ -1,5 +1,5 @@
 <script>
-    var regexp = /([0-9\.]+)|([\t\n\r]+)|[\r\n]+|\*|\/|\+|\-/g;
+    var regexp = /([0-9\.]+)|([ \t\n\r]+)|([\r\n]+)|(\*)|(\/)|(\+)|(\-)/g;
     var dictionary = ["Number","Whitespace","LineTerminator","*","/","+","-"];
 
     function tokenize(source) {
@@ -16,7 +16,7 @@
                 }
                 // console.log(result);
             }
-             console.log(result);
+             console.log(result[0]);
         } while(result);
     }
     tokenize("1024 + 10 * 25")

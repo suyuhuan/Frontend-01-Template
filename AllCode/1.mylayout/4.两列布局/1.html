@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两列布局</title>
+    <style>
+        #left,#right {
+            height: 400px;
+        }
+        #left {
+            width: 400px;
+            background-color: goldenrod;
+            float: left;
+        }
+        #right {
+            margin-left: 400px;
+            background-color: rebeccapurple
+        }
+        #inner {
+            background-color: red;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div id="left">左</div>
+    <div id="right">
+        <div id="inner"></div>
+    </div>
+    <div style="width: 100%;background-color: green;">dddddddddddddddddddddd</div>
+</body>
+</html>

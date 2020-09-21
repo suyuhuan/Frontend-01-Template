@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tictactoe</title>
+    <style>
+        #board{
+            width: 350px;
+            user-select: none;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 50px;
+            border: 1px solid black;
+            background-color: black;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            
+        }
+        .cell:nth-of-type(2n){
+            background-color: white; 
+        }
+    </style>
+</head>
+<body>
+   <div id="board"></div>
+</body>
+<script>
+    //1.确定数据结构
+    let pattern = [
+        [0,0,0],
+        [0,0,0],
+        [0,0,0]
+    ]
+
+    let color = 1;
+    
+   //2.根据数据结构生成棋盘和棋子
+    function show() {
+        let board = document.getElementById('board');
+        board.innerHTML = "";
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                 let cell = document.createElement('div');
+                cell.classList.add('cell');
+
+                cell.innerHTML = 
+                    pattern[i][j] === 2 ? "🍎 " :
+                    pattern[i][j] === 1 ? "🍊" :
+                    "";
+                
+                //3.给每个格子绑定事件
+                cell.addEventListener("click",() => moveUser(j,i));
+
+                board.appendChild(cell);
+            }
+        }
+    }
+    //3.给每个格子绑定事件
+    function moveUser(x,y){
+     
+        if(pattern[y][x] !== 0){
+            return;
+        }
+
+        pattern[y][x] = color;
+        //4.检查是否有人获胜
+        if (check(pattern, color)) {
+            alert(color === 2 ? " 🍎 is winner!": " 🍊 is winner!");
+        }
+        color = 3 - color;
+        show();
+        //5.判断下一步是否已经有人将获胜
+        if(willWin(pattern,color)) {
+            console.log(color === 2 ? " 🍎  is will win!": " 🍊 is will win!");
+        }
+        //6.添加AI人机交互
+        computerMove();
+    }
+    
+    //4.检查是否有人获胜
+    function check(pattern,color){
+        //横线上
+        for(let i = 0; i < 3; i++){
+            let win = true;
+            for (let j = 0; j < 3; j++){
+                if (pattern[i][j] !== color) {
+                    win = false;
+                    break;
+                }
+            }
+            if(win) {
+                return true;
+            }
+        }
+        //竖线上
+        for (let i = 0; i < 3; i++) {
+            let win = true;
+            for (let j = 0; j < 3; j++) {
+                if (pattern[j][i] !== color) {
+                    win = false;
+                    break;
+                }
+            }
+            if (win) {
+                return true;
+            }
+        }
+        //斜线上
+        {
+            let win = true;
+            for (let j = 0; j < 3; j++) {
+                if (pattern[j][j] !== color) {
+                    win = false;
+                    break;
+                }
+            }
+            if (win) {
+                return true;
+            }
+        }
+        //反斜线上
+        {
+            let win = true;
+            for (let j = 0; j < 3; j++){
+                if (pattern[j][2 - j] !== color) {
+                    win = false;
+                    break;
+                }
+            }
+            if (win) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    
+    function clone(pattern) {
+        return JSON.parse(JSON.stringify(pattern));
+    }
+
+    //5.判断下一步是否有人将获胜
+    function willWin(pattern, color){
+        for (let i = 0; i < 3; i++){
+            for (let j = 0; j < 3; j++){
+                if (pattern[i][j] !== 0) 
+                    continue;
+                //对手的
+                let tmp = clone(pattern);
+                tmp[i][j] = color;
+
+                if (check(tmp, color)) {
+                    // return true;
+                    return [j,i]
+                }
+            }
+        }
+        return null;
+    }
+    
+    //6.添加AI人机交互
+    function computerMove() {
+        let choice = bestChoice(pattern, color);
+        
+        if (choice.point) {
+            pattern[choice.point[1]][choice.point[0]] = color;
+        }
+        if (check(pattern, color)) {
+            alert(color === 2 ? " 🍎 is winner!": " 🍊 is winner!");
+        }
+        color = 3 - color;
+        show();
+    }
+
+    // 判断好的情况 result:1表示可以赢返回相应的点 -1不会赢 0 平局
+    function bestChoice(pattern, color){
+        let point = willWin(pattern, color);
+        // console.log(point);
+        //递归退出条件
+        if (point) {
+            return {
+                point,
+                result: 1,
+            }
+        }
+
+        let result = -1;
+        
+        outer:for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++){
+                if (pattern[i][j] !== 0) 
+                    continue;
+                //找对手最不利的点，对手与我相反
+                let tmp = clone(pattern);
+                tmp[i][j] = color;
+        
+                let opp = bestChoice(tmp, 3 - color);
+                //找对手最不利的点 就是我应该走的点
+                if (-opp.result >= result) {
+                    point = [j, i];
+                    result = -opp.result;
+                }
+                //如果赢了 输赢剪枝
+                if (result === 1) 
+                    break outer;
+                
+            }
+        }
+        return {
+            point,
+            result: point ? result : 0,
+        }
+    }
+
+    show()
+</script>
+</html>

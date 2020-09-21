@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>散列表解决方案--分离链接</title>
+</head>
+<body>
+    
+</body>
+<script src="linkedList.js"></script>
+<script>
+    function HashTable() {
+        let table = [];
+
+        let loseloseHashCode = function(key) {
+            let hash = 0;
+            for (let i = 0; i < key.length; i++) {
+                hash += key.charCodeAt(i);
+            }
+            return hash % 37;
+        }
+
+        let valuePair = function(key, value) {
+            this.key = key;
+            this.value = value;
+
+            this.toString = function() {
+                return '['+ this.key + '-' + this. value +']';
+            }
+        }
+
+        this.print = function() {
+            for (let i = 0; i < table.length; i++) {
+                if (table[i] !== undefined) {
+                    console.log(i + ":" + table[i]);
+                }
+            }
+        }
+
+        this.put = function(key, value) {
+            let position = loseloseHashCode(key);
+           if (table[position] == undefined) {
+               table[position] = new LinkedList();
+           }
+           table[position].append(new valuePair(key, value));
+        }
+
+        this.get = function(key) {
+            let position = loseloseHashCode(key);
+
+            if (table[position] !== undefined) {
+                //遍历链表来寻找键/值
+                let current = table[position].getHead();
+                while(current.next) {
+                    if (current.element.key === key) {
+                        return current.element.value;
+                    }
+                    current = current.next;
+                }
+                // 检查元素在链表第一个或最后一个节点的情况
+                if (current.element.key === key) {
+                    return current.element.value;
+                }
+            } 
+            return undefined;
+        }
+
+        this.remove = function(key) {
+           let position = loseloseHashCode(key);
+
+           if(table[position] !== undefined) {
+               let current = table[position].getHead();
+               while(current.next) {
+                   if (current.element.key === key) {
+                       table[position].remove(current.element);
+                       if(table[position].isEmpty()) {
+                           table[position] = undefined;
+                       }
+                       return true;
+                   }
+                   current = current.next;
+               }
+               //检查是否为第一个或最后一个元素
+               if (current.element.key === key) {
+                   table[position].remove(current.element);
+                   if(table[position].isEmpty()) {
+                       table[position] = undefined;
+                   }
+                   return true;
+               }
+           }
+           return false;
+        }
+    }
+
+</script>
+</html>

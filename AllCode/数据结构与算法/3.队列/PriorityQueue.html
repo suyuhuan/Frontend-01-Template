@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优先队列</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function PriorityQueue() {
+        let items = [];
+        function QueueElement(element,priority) {
+            this.element = element;
+            this.priority = priority;
+        }
+        this.enqueue = function(element, priority) {
+            let queueElement = new QueueElement(element, priority);
+
+            let added = false;
+            for (let i = 0; i< items.length;i++) {
+                if (queueElement.priority < items[i].priority){
+                    items.splice(i,0,queueElement);
+                    added = true;
+                    break;
+                }
+            }
+            if (!added) {
+                items.push(queueElement);
+            }
+        }
+        this.print = function() {
+            for (let i=0; i< items.length; i++) {
+                console.log(`${items[i].element} - ${items[i].priority}`);
+            }
+        };
+        //其他方法和默认的queue实现相同
+    }
+</script>
+</html>

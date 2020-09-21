@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    //封装变量
+     var mult = (function() { 
+         var cache = {};
+         return function() {
+             var args = Array.prototype.join.call(arguments, ',');
+             if ( args in cache ) {
+                 return cache[ args ];
+             }
+             var a = 1;
+             for (var i = 0, l = arguments.length; i < l; i++){
+                 a = a * arguments[i];
+             }
+             return cache[args] = a;
+         }
+     })();
+     //延续局部变量的寿命
+     var report = (function() {
+         var imgs = [];
+         return function(src) {
+             var img = new Image();
+             imgs.push(img);
+             img.src = src;
+         }
+     })
+     //闭包和面向对象设计
+     var extent = function() {
+         var value = 0;
+         return {
+             call: function() {
+                 value ++;
+                 console.log(value);
+             }
+         }
+     }
+     var extent = extend();
+
+     extent.call();
+     extent.call();
+     extent.call();
+    //转换成面向对象的写法
+     var extent = {
+         value: 0,
+         call: function() {
+             this.value++;
+             console.log(this.value);
+         }
+     }
+     extent.call();
+     extent.call();
+     extent.call();
+
+     //或者
+     var Extent = function() {
+         this.value = 0;
+     }
+     Extent.prototype.call = function() {
+         this.value++;
+         console.log(this.value);
+     }
+
+     var extent = new Extent();
+
+     extent.call();
+     extent.call();
+     extent.call();
+</script>
+</html>

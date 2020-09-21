@@ -1,0 +1,41 @@
+<script>
+    //冒泡排序-改良版
+    function ArrayList() {
+        var array = [];
+        this.insert = function(item) {
+            array.push(item);
+        }
+        this.toString = function() {
+            return array.join();
+        }
+
+        this.bubbleSort = function() {
+            var length = array.length;
+            for (var i=0; i<length; i++) {
+                for (var j = 0; j<length-1-i;j++) {
+                    if (array[j] > array[j+1]) {
+                        swap(array, j, j+1);
+                    }
+                }
+            }
+        }
+
+        var swap = function(array, index1, index2) {
+            var aux = array[index1];
+            array[index1] = array[index2];
+            array[index2] = aux;
+        }
+    }
+
+    function createNonSortedArray(size) {
+        var arrayL = new ArrayList();
+        for (var i = size; i > 0;i--) {
+            arrayL.insert(i);
+        }
+        return arrayL;
+    }
+    var myArray = createNonSortedArray(9);
+    console.log(myArray.toString());
+    myArray.bubbleSort();
+    console.log(myArray.toString());
+</script>
