@@ -57,6 +57,17 @@ let handler = {
 
 
 ### 组件化
+### 组件
+properties
+methods
+inherit
+attribute
+config & state
+event
+lifecycle
+children
+
+
 #### 接口设计思路
 ```
 carousel
@@ -75,4 +86,6 @@ carousel
         play()  stop()
     config
    ```
+
+   
    
